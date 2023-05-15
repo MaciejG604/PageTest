@@ -32,7 +32,13 @@ jobs:
         with:
           power: true
       - name: Compile
-        run: scala-cli compile src/ > /build/compile.md
+        run: scala-cli run src/ > /build/run.md
+      - name: Push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "mgajek@virtuslab.com"
+          git commit -am "Update run.md"
+          git push
 
   build-website:
     runs-on: ubuntu-latest
