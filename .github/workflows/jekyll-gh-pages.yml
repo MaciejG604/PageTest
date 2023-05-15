@@ -32,7 +32,7 @@ jobs:
         with:
           power: true
       - name: Compile
-        run: scala-cli compile src/ > /build/compile.log
+        run: scala-cli compile src/ > /build/compile.md
 
   build-website:
     runs-on: ubuntu-latest
