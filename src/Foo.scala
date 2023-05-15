@@ -1,3 +1,3 @@
 object Foo {
-  def msg: NonExistentType = "Hello from Foo"
+  def msg = "Hello from Foo"
 }
