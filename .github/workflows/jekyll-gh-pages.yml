@@ -32,7 +32,7 @@ jobs:
         with:
           power: true
       - name: Compile
-        run: scala-cli run src/ > /build/run.md
+        run: scala-cli run src/ > build/run.md
       - name: Push changes
         run: |
           git config --global user.name "GitHub Actions"
