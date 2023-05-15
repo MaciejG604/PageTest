@@ -1,5 +1,7 @@
+---
 layout: page
-title: "PAGE-TITLE"
+title: Blogging Like a Hacker
 permalink: /
+---
 
 Hello World
