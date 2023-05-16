@@ -4,4 +4,4 @@ title: Run results
 permalink: /run
 ---
 
-Hello from Bar v0.5
+Hello from Bar v0.6
