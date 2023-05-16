@@ -46,6 +46,7 @@ jobs:
           echo "permalink: /" >> $filename
           echo "---" >> $filename
           echo "" >> $filename
+          cat $filename
 
       - name: Add test results
         run: echo "$(date +'%Y-%m-%d-%H%M%S')" >> "build/$(date +'%Y-%m-%d-%H%M%S').md"
@@ -67,6 +68,8 @@ jobs:
 
   build-website:
     runs-on: ubuntu-latest
+    env:
+      filename: "$(date +'%Y-%m-%d-%H%M%S').md"
     needs: compile
     steps:
       - name: Checkout
@@ -78,7 +81,7 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ${{ filename }}
+          source: ${{ env.filename }}
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
