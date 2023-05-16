@@ -46,16 +46,13 @@ jobs:
           echo $front_matter > build/run.md
       - name: Compile
         run: scala-cli run src/ >> build/run.md
-      - name: Check Git Diff
-        run: git diff --name-only
-        id: git-diff
       - name: Push changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "mgajek@virtuslab.com"
           git commit -am "Update run.md"
           git push
-        if: ${{ steps.git-diff.outputs.stdout != '' }}
+        if: git diff --quiet
 
 
   build-website:
