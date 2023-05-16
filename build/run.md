@@ -1,4 +1,5 @@
 ---
+layout: page
 title: Run results
 permalink: /run
 ---
