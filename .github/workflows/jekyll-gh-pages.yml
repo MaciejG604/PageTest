@@ -36,7 +36,7 @@ jobs:
       - uses: VirtusLab/scala-cli-setup@v1
         with:
           power: true
-      - name: Wipe run.md file
+      - name: Create result file
         run: |
           filename="build/$(date +'%Y-%m-%d-%H%M%S').md"
           mkdir -p build && touch $filename
@@ -78,7 +78,7 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./build/"$(date +'%Y-%m-%d-%H%M%S').md"
+          source: ${{ filename }}
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
