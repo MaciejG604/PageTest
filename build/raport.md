@@ -4,7 +4,6 @@ title: Raport result
 permalink: /raport
 ---
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  <br>
 Reporting failed community build projects using Scala 3.3.0-RC5 <br>
 Listing failed projects in compiled with Scala 3.3.0-RC5 <br>
 <span style="color:red">COMPILER</span> failure in <srong>7mind/izumi @ 1.1.0-M20</strong> - <br>
