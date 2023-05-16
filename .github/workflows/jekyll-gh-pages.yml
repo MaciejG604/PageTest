@@ -38,6 +38,7 @@ jobs:
       - name: Wipe run.md file
         run: |
           echo "---" > build/run.md
+          echo "layout: page" >> build/run.md
           echo "title: Run results" >> build/run.md
           echo "permalink: /run" >> build/run.md
           echo "---" >> build/run.md
