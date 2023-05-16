@@ -38,16 +38,17 @@ jobs:
           power: true
       - name: Wipe run.md file
         run: |
-          mkdir -p build && touch "build/$(date +'%Y-%m-%d-%H%M%S').md"
-          echo "---" > build/run.md
-          echo "layout: page" >> build/run.md
-          echo "title: Run results $(date +'%Y-%m-%d')" >> build/run.md
-          echo "permalink: /" >> build/run.md
-          echo "---" >> build/run.md
-          echo "" >> build/run.md
+          filename="build/$(date +'%Y-%m-%d-%H%M%S').md"
+          mkdir -p build && touch $filename
+          echo "---" > $filename
+          echo "layout: page" >> $filename
+          echo "title: Run results $(date +'%Y-%m-%d')" >> $filename
+          echo "permalink: /" >> $filename
+          echo "---" >> $filename
+          echo "" >> $filename
 
       - name: Add test results
-        run: echo "$(date +'%Y-%m-%d-%H%M%S')" >> build/run.md
+        run: echo "$(date +'%Y-%m-%d-%H%M%S')" >> "build/$(date +'%Y-%m-%d-%H%M%S').md"
       - name: Push changes
         run: |
           if git diff --quiet; then
