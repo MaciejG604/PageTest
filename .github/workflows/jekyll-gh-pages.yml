@@ -43,10 +43,9 @@ jobs:
           echo "---" > $filename
           echo "layout: page" >> $filename
           echo "title: Run results $(date +'%Y-%m-%d')" >> $filename
-          echo "permalink: /" >> $filename
+          echo "permalink: /$(date +'%Y-%m-%d')/" >> $filename
           echo "---" >> $filename
           echo "" >> $filename
-          cat $filename
 
       - name: Add test results
         run: echo "$(date +'%Y-%m-%d-%H%M%S')" >> "build/$(date +'%Y-%m-%d').md"
