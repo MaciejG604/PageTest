@@ -48,11 +48,15 @@ jobs:
         run: scala-cli run src/ >> build/run.md
       - name: Push changes
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "mgajek@virtuslab.com"
-          git commit -am "Update run.md"
-          git push
-        if: git diff --quiet
+          if git diff --quiet; then
+            echo "No changes to the output on this push; exiting."
+            exit 0
+          else
+            git config --global user.name "GitHub Actions"
+            git config --global user.email "mgajek@virtuslab.com"
+            git commit -am "Update run.md"
+            git push
+          fi
 
 
   build-website:
