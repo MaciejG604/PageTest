@@ -72,20 +72,25 @@ Listing failed projects in compiled with Scala 3.3.0-RC5 <br>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Projects with last successful builds using Scala <b><strong>3.3.0-RC4</strong></b> [2]: <br>
+
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
 | akka/akka-projection | 1.4.0-M3 -> 1.4.0-M4 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8592174780) |  | <br>
 | quafadas/dedav4s | 0.8.2 -> 0.9.0-RC1 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8595394919) |  | <br>
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Projects with last successful builds using Scala <b><strong>3.3.0-RC3</strong></b> [4]: <br>
+
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
 | apimorphism/telegramium | 7.64.0 -> 7.67.0 | [Open CB logs]() |  | <br>
 | sageserpent-open/americium | 1.8.1 -> 1.12.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8593439178) |  | <br>
 | sirthias/borer | 1.10.1 -> 1.10.2 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8593439784) |  | <br>
 | zio/zio-config | 3.0.7 -> 4.0.0-RC14 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8593087792) |  | <br>
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Projects with last successful builds using Scala <b><strong>3.2.2</strong></b> [24]: <br>
+
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
 | andyglow/typesafe-config-scala | 2.0.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8584534605) |  | <br>
@@ -112,19 +117,25 @@ Projects with last successful builds using Scala <b><strong>3.2.2</strong></b> [
 | tinkoff/phobos | 0.19.2 -> 0.20.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8592401534) |  | <br>
 | zio/interop-cats | 23.0.0.1 -> 23.0.0.4 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8592402129) |  | <br>
 | zio/zio-schema | 0.4.2 -> 0.4.10 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8594515224) |  | <br>
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 Projects with last successful builds using Scala <b><strong>3.1.3</strong></b> [2]: <br>
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
 | danslapman/morphling | 3.1.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8595392400) |  | <br>
 | gekomad/itto-csv | 2.0.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8592398168) |  | <br>
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 Projects with last successful builds using Scala <b><strong>3.0.2</strong></b> [2]: <br>
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
 | caspercommunityio/casper-scala-sdk | 1.2.3 | [Open CB logs]() |  | <br>
 | ciaraobrien/dottytags | 1.1.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8586683374) |  | <br>
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 Projects with last successful builds using Scala <b><strong>with no successful builds data</strong></b> [20]: <br>
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
@@ -148,4 +159,5 @@ Projects with last successful builds using Scala <b><strong>with no successful b
 | wvlet/airframe | 23.4.2 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8586699105) |  | <br>
 | xuwei-k/nobox | 0.3.2 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8584568570) |  | <br>
 | zio/zio-redis | 0.2.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8595395955) |  | <br>
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
