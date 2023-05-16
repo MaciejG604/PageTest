@@ -37,13 +37,12 @@ jobs:
           power: true
       - name: Wipe run.md file
         run: |
-          front_matter="---
-          title: Run results
-          permalink: /run
-          ---
+          echo "---" > build/run.md
+          echo "title: Run results" >> build/run.md
+          echo "permalink: /run" >> build/run.md
+          echo "---" >> build/run.md
+          echo "" >> build/run.md
 
-          "
-          echo $front_matter > build/run.md
       - name: Compile
         run: scala-cli run src/ >> build/run.md
       - name: Push changes
