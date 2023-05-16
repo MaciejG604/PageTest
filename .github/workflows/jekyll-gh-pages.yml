@@ -49,21 +49,21 @@ jobs:
 
       - name: Add test results
         run: echo "$(date +'%Y-%m-%d-%H%M%S')" >> "build/$(date +'%Y-%m-%d').md"
-      - name: Push changes
-        run: |
-          git add build
-          if git diff --cached --quiet; then
-            echo "No changes to the output on this push; exiting."
-            exit 0
-          else
-            git config --global user.name "GitHub Actions"
-            git config --global user.email "mgajek@virtuslab.com"
-            git stash
-            git checkout gh-page
-            git stash pop
-            git commit -am "Update run.md"
-            git push origin gh-page
-          fi
+#      - name: Push changes
+#        run: |
+#          git add build
+#          if git diff --cached --quiet; then
+#            echo "No changes to the output on this push; exiting."
+#            exit 0
+#          else
+#            git config --global user.name "GitHub Actions"
+#            git config --global user.email "mgajek@virtuslab.com"
+#            git stash
+#            git checkout gh-page
+#            git stash pop
+#            git commit -am "Update run.md"
+#            git push origin gh-page
+#          fi
 
 
   build-website:
