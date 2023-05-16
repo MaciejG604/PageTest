@@ -77,7 +77,7 @@ jobs:
           ref: gh-page
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - run: echo ::set-output name=filename::"$(date +'%Y-%m-%d-%H%M%S').md"
+      - run: echo ::set-output name=filename::"build/$(date +'%Y-%m-%d-%H%M%S').md"
         id: filename
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
