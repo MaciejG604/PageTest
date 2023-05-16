@@ -1,3 +1,3 @@
 object Bar extends App {
-  println("Hello from Bar v0.10")
+  println("Hello from Bar v0.11")
 }
