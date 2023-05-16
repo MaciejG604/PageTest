@@ -78,7 +78,7 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: "./build/$(date +'%Y-%m-%d-%H%M%S').md"
+          source: ./build/"$(date +'%Y-%m-%d-%H%M%S').md"
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
