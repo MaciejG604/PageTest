@@ -119,24 +119,24 @@ Projects with last successful builds using Scala <b><strong>3.2.2</strong></b> [
 | zio/zio-schema | 0.4.2 -> 0.4.10 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8594515224) |  | <br>
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 Projects with last successful builds using Scala <b><strong>3.1.3</strong></b> [2]: <br>
+
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
 | danslapman/morphling | 3.1.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8595392400) |  | <br>
 | gekomad/itto-csv | 2.0.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8592398168) |  | <br>
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Projects with last successful builds using Scala <b><strong>3.0.2</strong></b> [2]: <br>
+
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
 | caspercommunityio/casper-scala-sdk | 1.2.3 | [Open CB logs]() |  | <br>
 | ciaraobrien/dottytags | 1.1.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8586683374) |  | <br>
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Projects with last successful builds using Scala <b><strong>with no successful builds data</strong></b> [20]: <br>
+
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
 | 7mind/izumi | 1.1.0-M20 | [Open CB logs]() |  | <br>
