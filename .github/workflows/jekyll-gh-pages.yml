@@ -37,15 +37,16 @@ jobs:
           power: true
       - name: Wipe run.md file
         run: |
+          mkdir -p build && touch "build/$(date +'%Y-%m-%d-%H%M%S').md"
           echo "---" > build/run.md
           echo "layout: page" >> build/run.md
-          echo "title: Run results" >> build/run.md
-          echo "permalink: /run" >> build/run.md
+          echo "title: Run results $(date +'%Y-%m-%d')" >> build/run.md
+          echo "permalink: /" >> build/run.md
           echo "---" >> build/run.md
           echo "" >> build/run.md
 
-      - name: Compile
-        run: scala-cli run src/ >> build/run.md
+      - name: Add test results
+        run: echo "$(date +'%Y-%m-%d-%H%M%S')" >> build/run.md
       - name: Push changes
         run: |
           if git diff --quiet; then
@@ -54,8 +55,11 @@ jobs:
           else
             git config --global user.name "GitHub Actions"
             git config --global user.email "mgajek@virtuslab.com"
+            git stash
+            git checkout gh-page
+            git stash pop
             git commit -am "Update run.md"
-            git push
+            git push origin gh-page
           fi
 
 
@@ -65,12 +69,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: gh-page
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
+          source: "./build/$(date +'%Y-%m-%d-%H%M%S').md"
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
