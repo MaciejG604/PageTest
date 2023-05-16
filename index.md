@@ -1,7 +1,8 @@
--—-
-ayout: page
+---
+layout: page
 title: Community Build 3
--—-
+permalink: /
+---
 <ul>
     {% for page in site.pages %}
     <li>
