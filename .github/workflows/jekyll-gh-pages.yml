@@ -46,7 +46,7 @@ jobs:
             echo "The raport file is non-empty."
             git checkout jekyll-gh-page
           
-            .scripts/create_post_with_front_matter.sh "./_posts/${{ steps.filename.outputs.filename }}"
+            ./scripts/create_post_with_front_matter.sh "./_posts/${{ steps.filename.outputs.filename }}"
             cat /tmp/${{ steps.filename.outputs.filename }} >> "./_posts/${{ steps.filename.outputs.filename }}"
           
             git config --global user.name "GitHub Actions"
