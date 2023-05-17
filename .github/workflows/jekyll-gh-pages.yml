@@ -53,7 +53,8 @@ jobs:
             git config --global user.name "GitHub Actions"
             git config --global user.email "mgajek@virtuslab.com"
           
-            git commit -am "Upload build raport"
+            git add "./_posts/${{ steps.filename.outputs.filename }}"
+            git commit -m "Upload build raport"
             git push origin jekyll-gh-page
           else
             echo "The raport file is empty."
