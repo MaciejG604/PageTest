@@ -33,28 +33,27 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
 
-      - run: echo ::set-output name=filename::"$(./scripts/get_filename.sh)"
-        id: filename
+      - run: echo "filename=$(./scripts/get_filename.sh)" >> "$GITHUB_ENV"
       - name: Generate raport
         env:
           ES_USER: ${{ secrets.OPENCB_ELASTIC_USER }}
           ES_PASSWORD: ${{ secrets.OPENCB_ELASTIC_PSWD }}
         run: |
-          ./scripts/create_post_with_front_matter.sh "$HOME/${{ steps.filename.outputs.filename }}"
-          echo "GitHub Action on $(date)" >> "$HOME/${{ steps.filename.outputs.filename }}"
+          ./scripts/create_post_with_front_matter.sh "$HOME/${{ env.filename }}"
+          echo "GitHub Action on $(date)" >> "$HOME/${{ env.filename }}"
       - name: Push raport
         run: |
-          if [ -s "$HOME/${{ steps.filename.outputs.filename }}" ]; then
+          if [ -s "$HOME/${{ env.filename }}" ]; then
             echo "The raport file is non-empty."
             git checkout jekyll-gh-page
           
             mkdir -p "./_posts"
-            cat $HOME/${{ steps.filename.outputs.filename }} > "./_posts/${{ steps.filename.outputs.filename }}"
+            cat $HOME/${{ env.filename }} > "./_posts/${{ env.filename }}"
           
             git config --global user.name "GitHub Actions"
             git config --global user.email "mgajek@virtuslab.com"
           
-            git add "./_posts/${{ steps.filename.outputs.filename }}"
+            git add "./_posts/${{ env.filename }}"
             git commit -m "Upload build raport"
             git push origin jekyll-gh-page
           else
