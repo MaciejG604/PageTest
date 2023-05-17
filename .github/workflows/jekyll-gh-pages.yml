@@ -24,76 +24,37 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build job
-  compile:
-    runs-on: ubuntu-latest
+  create-raport:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - name: Git Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
-      - uses: coursier/cache-action@v6.4
-      - uses: VirtusLab/scala-cli-setup@v1
-        with:
-          power: true
-      - name: Create result file
-        run: |
-          filename="build/$(date +'%Y-%m-%d').md"
-          mkdir -p build && touch $filename
-          echo "---" > $filename
-          echo "layout: page" >> $filename
-          echo "title: Run results $(date +'%Y-%m-%d')" >> $filename
-          echo "permalink: /$(date +'%Y-%m-%d')/" >> $filename
-          echo "---" >> $filename
-          echo "" >> $filename
 
-      - name: Add test results
-        run: echo "$(date +'%Y-%m-%d-%H%M%S')" >> "build/$(date +'%Y-%m-%d').md"
-#      - name: Push changes
-#        run: |
-#          git add build
-#          if git diff --cached --quiet; then
-#            echo "No changes to the output on this push; exiting."
-#            exit 0
-#          else
-#            git config --global user.name "GitHub Actions"
-#            git config --global user.email "mgajek@virtuslab.com"
-#            git stash
-#            git checkout gh-page
-#            git stash pop
-#            git commit -am "Update run.md"
-#            git push origin gh-page
-#          fi
-
-
-  build-website:
-    runs-on: ubuntu-latest
-    needs: compile
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: gh-page
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - run: echo ::set-output name=filename::"build/$(date +'%Y-%m-%d').md"
+      - run: echo ::set-output name=filename::"$(.scripts/get_filename.sh)"
         id: filename
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build-website
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Generate raport
+        env:
+          ES_USER: ${{ secrets.OPENCB_ELASTIC_USER }}
+          ES_PASSWORD: ${{ secrets.OPENCB_ELASTIC_PSWD }}
+        run: echo "GitHub Action on $(date)">> /tmp/${{ steps.filename.outputs.filename }}
+      - name: Push raport
+        run: |
+          if [ -s /tmp/${{ steps.filename.outputs.filename }} ]; then
+            echo "The raport file is non-empty."
+            git checkout jekyll-gh-page
+          
+            .scripts/create_post_with_front_matter.sh ./_posts/${{ steps.filename.outputs.filename }}
+            cat /tmp/${{ steps.filename.outputs.filename }} >> ./_posts/${{ steps.filename.outputs.filename }}
+          
+            git config --global user.name "GitHub Actions"
+            git config --global user.email "mgajek@virtuslab.com"
+          
+            git commit -am "Upload build raport"
+            git push origin jekyll-gh-page
+          else
+            echo "The raport file is empty."
+            exit(0)
+          fi
