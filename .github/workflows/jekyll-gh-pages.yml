@@ -39,15 +39,15 @@ jobs:
         env:
           ES_USER: ${{ secrets.OPENCB_ELASTIC_USER }}
           ES_PASSWORD: ${{ secrets.OPENCB_ELASTIC_PSWD }}
-        run: echo "GitHub Action on $(date)">> "~/${{ steps.filename.outputs.filename }}"
+        run: echo "GitHub Action on $(date)">> "$HOME/${{ steps.filename.outputs.filename }}"
       - name: Push raport
         run: |
-          if [ -s "~/${{ steps.filename.outputs.filename }}" ]; then
+          if [ -s "$HOME/${{ steps.filename.outputs.filename }}" ]; then
             echo "The raport file is non-empty."
             git checkout jekyll-gh-page
           
             ./scripts/create_post_with_front_matter.sh "./_posts/${{ steps.filename.outputs.filename }}"
-            cat ~/${{ steps.filename.outputs.filename }} >> "./_posts/${{ steps.filename.outputs.filename }}"
+            cat $HOME/${{ steps.filename.outputs.filename }} >> "./_posts/${{ steps.filename.outputs.filename }}"
           
             git config --global user.name "GitHub Actions"
             git config --global user.email "mgajek@virtuslab.com"
