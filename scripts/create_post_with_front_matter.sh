@@ -9,7 +9,7 @@ fi
 
 echo "---" > "$filename"
 echo "layout: post" >> "$filename"
-echo "date: $(date "+%Y-%m-%d %H:%M:%S %z")"
+echo "date: $(date "+%Y-%m-%d %H:%M:%S %z")" >> "$filename"
 echo "---" >> "$filename"
 echo "" >> "$filename"
 
