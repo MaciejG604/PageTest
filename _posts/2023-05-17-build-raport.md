@@ -82,7 +82,7 @@ Projects with last successful builds using Scala <b><strong>3.3.0-RC3</strong></
 
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
-| apimorphism/telegramium | 7.64.0 -> 7.67.0 | [Open CB logs]() |  | <br>
+| apimorphism/telegramium | 7.64.0 -> 7.67.0 | Open CB logs |  | <br>
 | sageserpent-open/americium | 1.8.1 -> 1.12.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8593439178) |  | <br>
 | sirthias/borer | 1.10.1 -> 1.10.2 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8593439784) |  | <br>
 | zio/zio-config | 3.0.7 -> 4.0.0-RC14 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8593087792) |  | <br>
@@ -94,7 +94,7 @@ Projects with last successful builds using Scala <b><strong>3.2.2</strong></b> [
 | ------- | ------- | --------- | ----- | <br>
 | andyglow/typesafe-config-scala | 2.0.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8584534605) |  | <br>
 | argonaut-io/argonaut | 6.2.6 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8591678769) |  | <br>
-| babylonhealth/lit-fhir | 0.14.17 | [Open CB logs]() |  | <br>
+| babylonhealth/lit-fhir | 0.14.17 | Open CB logs |  | <br>
 | dobrynya/zio-jms | 0.2 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8584538323) |  | <br>
 | giiita/refuel | 2.0.2 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8584542012) |  | <br>
 | itv/quartz4s | 1.0.4 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8591681618) |  | <br>
@@ -130,7 +130,7 @@ Projects with last successful builds using Scala <b><strong>3.0.2</strong></b> [
 
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
-| caspercommunityio/casper-scala-sdk | 1.2.3 | [Open CB logs]() |  | <br>
+| caspercommunityio/casper-scala-sdk | 1.2.3 | Open CB logs |  | <br>
 | ciaraobrien/dottytags | 1.1.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8586683374) |  | <br>
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -138,7 +138,7 @@ Projects with last successful builds using Scala <b><strong>with no successful b
 
 | Project | Version | Build URL | Notes | <br>
 | ------- | ------- | --------- | ----- | <br>
-| 7mind/izumi | 1.1.0-M20 | [Open CB logs]() |  | <br>
+| 7mind/izumi | 1.1.0-M20 | Open CB logs |  | <br>
 | bot4s/zmatrix | 0.3.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8594507875) |  | <br>
 | cequence-io/openai-scala-client | 0.3.1 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8591977920) |  | <br>
 | circe/circe | 0.14.5 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8593086154) |  | <br>
@@ -146,7 +146,7 @@ Projects with last successful builds using Scala <b><strong>with no successful b
 | fingo/spata | 3.0.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8592397811) |  | <br>
 | fs2-blobstore/fs2-blobstore | 0.8.7 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8592398075) |  | <br>
 | getkyo/kyo | 0.2.5 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8595393291) |  | <br>
-| katrix/perspective | 0.1.0 | [Open CB logs]() |  | <br>
+| katrix/perspective | 0.1.0 | Open CB logs |  | <br>
 | nafg/css-dsl | 0.9.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8586689293) |  | <br>
 | nrinaudo/kantan.parsers | 1.0.6 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8586690006) |  | <br>
 | ollls/zio-tls-http | 2.0.0 | [Open CB logs](https://github.com/VirtusLab/community-build3/actions/runs/4820267563/jobs/8594512095) |  | <br>
