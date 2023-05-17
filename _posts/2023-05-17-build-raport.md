@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2023-05-17 9:26:17 +0200
+date:   2023-05-17 16:26:17 +0200
 ---
 
 Reporting failed community build projects using Scala 3.3.0-RC5 <br>
