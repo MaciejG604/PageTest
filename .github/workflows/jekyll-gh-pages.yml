@@ -32,7 +32,7 @@ jobs:
           name: raport
           path: $HOME/${{ env.filename }}
       - name: List files
-        run: ls -R
+        run: ls -aR
       - name: Push raport
         uses: ./.github/actions/push-raport-to-gh-page.yml
 #        run: |
