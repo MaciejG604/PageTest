@@ -37,7 +37,7 @@ runs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "mgajek@virtuslab.com"
           
-          git add "./_posts/"$filename"
+          git add ./_posts/"$filename"
           git commit -m "Upload build raport"
           git push origin jekyll-gh-page
         else
