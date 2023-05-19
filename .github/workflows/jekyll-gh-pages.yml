@@ -20,9 +20,7 @@ jobs:
 
 #      - run: echo "filename=$HOME/$(./scripts/get_filename.sh)" >> "$GITHUB_ENV"
       - name: Generate raport
-        run: |
-          ./scripts/create_post_with_front_matter.sh raport.md
-          echo "GitHub Action on $(date)" >> raport.md
+        run: echo "GitHub Action on $(date)" >> raport.md
       - name: Upload raport
         uses: actions/upload-artifact@v3
         with:
