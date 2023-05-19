@@ -1,5 +1,9 @@
 name: "Push raport to gh-page"
 description: "Used to push a raport file to the gh-page branch for the webiste to be updated"
+inputs:
+  token:
+    description: "Token for pushing"
+    required: true
 
 runs:
   using: "composite"
@@ -9,7 +13,7 @@ runs:
       with:
         ref: jekyll-gh-page
         fetch-depth: 0
-        token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
+        token: ${{ inputs.token }}
 
     - uses: actions/download-artifact@v3
       with:
@@ -17,6 +21,7 @@ runs:
         path: ~/raport
 
     - name: Add the raport to _post dir and push
+      shell: bash
       run: |
         if [ -s "$HOME/${{ env.filename }}" ]; then
           echo "The raport file is non-empty."
