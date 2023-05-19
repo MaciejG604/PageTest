@@ -24,7 +24,7 @@ runs:
 
     - name: Add front matter to the file
       shell: bash
-      run: ./scripts/insert_post_front_matter.sh ${{ inputs.file-to-pick }} &{{ inputs.build-title }}
+      run: ./scripts/insert_post_front_matter.sh ${{ inputs.file-to-pick }} ${{ inputs.build-title }}
 
 
     - name: Git Checkout
