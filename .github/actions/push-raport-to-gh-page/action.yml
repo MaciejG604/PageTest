@@ -57,6 +57,7 @@ runs:
             cat ~/${{ inputs.file-to-pick }} > $file_path
             if [[ "$file1" != "$file2" ]]; then
               mv $file_path ./_posts/"$filename"
+            fi
           else
             cat ~/${{ inputs.file-to-pick }} > ./_posts/"$filename"
           fi
