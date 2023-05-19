@@ -32,7 +32,7 @@ jobs:
         uses: ./.github/actions/push-raport-to-gh-page
         with:
           file-to-pick: raport.md
-          build-title: "GitHub Action on $(date)"
+          build-title: "GitHub Action on different22"
           token : ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
 #        run: |
 #          if [ -s "$HOME/${{ env.filename }}" ]; then
