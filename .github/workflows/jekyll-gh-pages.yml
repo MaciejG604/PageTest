@@ -20,9 +20,6 @@ jobs:
 
       - run: echo "filename=$(./scripts/get_filename.sh)" >> "$GITHUB_ENV"
       - name: Generate raport
-        env:
-          ES_USER: ${{ secrets.OPENCB_ELASTIC_USER }}
-          ES_PASSWORD: ${{ secrets.OPENCB_ELASTIC_PSWD }}
         run: |
           ./scripts/create_post_with_front_matter.sh "$HOME/${{ env.filename }}"
           echo "GitHub Action on $(date)" >> "$HOME/${{ env.filename }}"
@@ -30,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: raport
-          path: $HOME/${{ env.filename }}
+          path: "$HOME/${{ env.filename }}"
 #      - name: List files
 #        run: ls -aR
       - name: Push raport
