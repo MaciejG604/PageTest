@@ -52,7 +52,7 @@ runs:
           # Find first match
           file_path=$(find "./_posts" -type f -regex "$same_ver_pattern" -print -quit)
           
-          # Check if a file was found
+          # Check if a file was found and replace it
           if [[ -n "$file_path" ]]; then
             cat ~/${{ inputs.file-to-pick }} > $file_path
             mv $file_path ./_posts/"$filename"
