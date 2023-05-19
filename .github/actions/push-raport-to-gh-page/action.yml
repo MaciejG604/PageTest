@@ -40,13 +40,14 @@ runs:
           echo "The raport file is non-empty."
         
           # Get filename
-          filename="$(date -u "+%Y-%m-%d")-build-raport.md"
+          normalized_build_title="$(echo '${{ inputs.build-title }}' | tr '[:upper:]' '[:lower:]' | tr ' ' '-')"
+          filename="$(date -u '+%Y-%m-%d')-$normalized_build_title.md"
         
           # create _posts dir if not exists
           mkdir -p "./_posts"
         
           # Find raport from same compiler version
-          same_ver_pattern=".*-${{ inputs.build-title }}\.md"
+          same_ver_pattern=".*-$normalized_build_title\.md"
 
           # Find first match
           file_path=$(find "./_posts" -type f -regex "$same_ver_pattern" -print -quit)
