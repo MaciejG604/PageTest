@@ -29,22 +29,28 @@ jobs:
         run: |
           ./scripts/create_post_with_front_matter.sh "$HOME/${{ env.filename }}"
           echo "GitHub Action on $(date)" >> "$HOME/${{ env.filename }}"
+      - name: Upload raport
+        uses: actions/upload-artifact@v2
+        with:
+          name: raport
+          path: $HOME/${{ env.filename }}
       - name: Push raport
-        run: |
-          if [ -s "$HOME/${{ env.filename }}" ]; then
-            echo "The raport file is non-empty."
-            git checkout jekyll-gh-page
-          
-            mkdir -p "./_posts"
-            cat $HOME/${{ env.filename }} > "./_posts/${{ env.filename }}"
-          
-            git config --global user.name "GitHub Actions"
-            git config --global user.email "mgajek@virtuslab.com"
-          
-            git add "./_posts/${{ env.filename }}"
-            git commit -m "Upload build raport"
-            git push origin jekyll-gh-page
-          else
-            echo "The raport file is empty."
-            exit 0
-          fi
+        uses: actions/push-raport-to-gh-page/
+#        run: |
+#          if [ -s "$HOME/${{ env.filename }}" ]; then
+#            echo "The raport file is non-empty."
+#            git checkout jekyll-gh-page
+#
+#            mkdir -p "./_posts"
+#            cat $HOME/${{ env.filename }} > "./_posts/${{ env.filename }}"
+#
+#            git config --global user.name "GitHub Actions"
+#            git config --global user.email "mgajek@virtuslab.com"
+#
+#            git add "./_posts/${{ env.filename }}"
+#            git commit -m "Upload build raport"
+#            git push origin jekyll-gh-page
+#          else
+#            echo "The raport file is empty."
+#            exit 0
+#          fi

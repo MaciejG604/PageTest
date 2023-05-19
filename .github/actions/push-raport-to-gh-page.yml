@@ -1,0 +1,38 @@
+name: "Push raport to gh-page"
+description: "Used to push a raport file to the gh-page branch for the webiste to be updated"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Git Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: jekyll-gh-page
+        fetch-depth: 0
+        token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
+
+    - uses: actions/download-artifact@v3
+      with:
+        name: raport
+        path: ~/raport
+
+    - name: Add the raport to _post dir and push
+      run: |
+        if [ -s "$HOME/${{ env.filename }}" ]; then
+          echo "The raport file is non-empty."
+        
+          filename=$(./scripts/get_filename.sh)
+          
+          mkdir -p "./_posts"
+          cat ~/raport > "./_posts/"$filename"
+          
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "mgajek@virtuslab.com"
+          
+          git add "./_posts/"$filename"
+          git commit -m "Upload build raport"
+          git push origin jekyll-gh-page
+        else
+          echo "The raport file is empty."
+          exit 0
+        fi
