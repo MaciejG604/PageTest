@@ -33,6 +33,7 @@ jobs:
       - name: Push raport
         uses: ./.github/actions/push-raport-to-gh-page
         with:
+          file-to-push: raport.md
           token : ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
 #        run: |
 #          if [ -s "$HOME/${{ env.filename }}" ]; then

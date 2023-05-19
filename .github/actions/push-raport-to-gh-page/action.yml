@@ -1,6 +1,9 @@
 name: "Push raport to gh-page"
 description: "Used to push a raport file to the gh-page branch for the webiste to be updated"
 inputs:
+  file-to-push:
+    description: "Name of the file that has been uploaded and should be pushed"
+    required: true
   token:
     description: "Token for pushing"
     required: true
@@ -24,7 +27,7 @@ runs:
       shell: bash
       run: |
         ls ~/
-        if [ -s ~/raport.md ]; then
+        if [ -s ~/${{ inputs.file-to-push }} ]; then
           echo "The raport file is non-empty."
         
           current_date=$(date "+%Y-%m-%d")
@@ -32,7 +35,7 @@ runs:
           filename="${current_date}-build-result-${second_of_day}.md"
           
           mkdir -p "./_posts"
-          cat ~/raport.md > ./_posts/"$filename"
+          cat ~/${{ inputs.file-to-push }} > ./_posts/"$filename"
           
           git config --global user.name "GitHub Actions"
           git config --global user.email "mgajek@virtuslab.com"
