@@ -26,7 +26,9 @@ runs:
         if [ -s ~/raport ]; then
           echo "The raport file is non-empty."
         
-          filename="$(./scripts/get_filename.sh)"
+          current_date=$(date "+%Y-%m-%d")
+          second_of_day=$(date "+%H3600+%M60+%S" | bc)
+          filename="${current_date}-build-result-${second_of_day}.md"
           
           mkdir -p "./_posts"
           cat ~/raport > "./_posts/"$filename"
