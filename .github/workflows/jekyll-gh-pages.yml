@@ -27,12 +27,12 @@ jobs:
           ./scripts/create_post_with_front_matter.sh "$HOME/${{ env.filename }}"
           echo "GitHub Action on $(date)" >> "$HOME/${{ env.filename }}"
       - name: Upload raport
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: raport
           path: $HOME/${{ env.filename }}
       - name: Push raport
-        uses: ./.github/actions/push-raport-to-gh-page/
+        uses: ./.github/actions
 #        run: |
 #          if [ -s "$HOME/${{ env.filename }}" ]; then
 #            echo "The raport file is non-empty."
