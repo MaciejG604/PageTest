@@ -1,8 +1,11 @@
 name: "Push raport to gh-page"
 description: "Used to push a raport file to the gh-page branch for the webiste to be updated"
 inputs:
-  file-to-push:
-    description: "Name of the file that has been uploaded and should be pushed"
+  file-to-pick:
+    description: "Name of the file that has been uploaded and should be picked for the raport"
+    required: true
+  build-title:
+    description: "Title of the post file that will be created"
     required: true
   token:
     description: "Token for pushing"
@@ -13,29 +16,48 @@ runs:
   steps:
     - name: Git Checkout
       uses: actions/checkout@v3
-      with:
-        ref: jekyll-gh-page
-        fetch-depth: 0
-        token: ${{ inputs.token }}
 
     - uses: actions/download-artifact@v3
       with:
         name: raport
         path: ~/
 
+    - name: Add front matter to the file
+      shell: bash
+      run: ./scripts/insert_post_front_matter.sh ${{ inputs.file-to-pick }} &{{ inputs.build-title }}
+
+
+    - name: Git Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: jekyll-gh-page
+        token: ${{ inputs.token }}
+
     - name: Add the raport to _post dir and push
       shell: bash
       run: |
-        ls ~/
-        if [ -s ~/${{ inputs.file-to-push }} ]; then
+        if [ -s ~/${{ inputs.file-to-pick }} ]; then
           echo "The raport file is non-empty."
         
-          current_date=$(date "+%Y-%m-%d")
-          second_of_day=$(date "+%H3600+%M60+%S" | bc)
-          filename="${current_date}-build-result-${second_of_day}.md"
-          
+          # Get filename
+          filename="$(date -u "+%Y-%m-%d")-${{ inputs.build-title }}.md"
+        
+          # create _posts dir if not exists
           mkdir -p "./_posts"
-          cat ~/${{ inputs.file-to-push }} > ./_posts/"$filename"
+        
+          # Find raport from same compiler version
+          same_ver_pattern=".*-${{ inputs.build-title }}\.md"
+
+          # Find first match
+          file_path=$(find "./_posts" -type f -regex "$same_ver_pattern" -print -quit)
+          
+          # Check if a file was found
+          if [[ -n "$file_path" ]]; then
+            cat ~/${{ inputs.file-to-pick }} > $file_path
+            mv $file_path ./_posts/"$filename"
+          else
+            cat ~/${{ inputs.file-to-pick }} > ./_posts/"$filename"
+          fi
           
           git config --global user.name "GitHub Actions"
           git config --global user.email "mgajek@virtuslab.com"
