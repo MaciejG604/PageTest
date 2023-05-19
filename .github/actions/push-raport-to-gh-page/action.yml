@@ -17,13 +17,13 @@ runs:
 
     - uses: actions/download-artifact@v3
       with:
-        name: raport
-        path: ~/raport
+        name: raport.md
+        path: ~/
 
     - name: Add the raport to _post dir and push
       shell: bash
       run: |
-        if [ -s ~/raport ]; then
+        if [ -s ~/raport.md ]; then
           echo "The raport file is non-empty."
         
           current_date=$(date "+%Y-%m-%d")
@@ -31,7 +31,7 @@ runs:
           filename="${current_date}-build-result-${second_of_day}.md"
           
           mkdir -p "./_posts"
-          cat ~/raport > "./_posts/"$filename"
+          cat ~/raport.md > "./_posts/"$filename"
           
           git config --global user.name "GitHub Actions"
           git config --global user.email "mgajek@virtuslab.com"
