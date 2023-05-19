@@ -18,16 +18,16 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v3
 
-      - run: echo "filename=$(./scripts/get_filename.sh)" >> "$GITHUB_ENV"
+      - run: echo "filename=$HOME/$(./scripts/get_filename.sh)" >> "$GITHUB_ENV"
       - name: Generate raport
         run: |
-          ./scripts/create_post_with_front_matter.sh "$HOME/${{ env.filename }}"
-          echo "GitHub Action on $(date)" >> "$HOME/${{ env.filename }}"
+          ./scripts/create_post_with_front_matter.sh ${{ env.filename }}
+          echo "GitHub Action on $(date)" >> ${{ env.filename }}
       - name: Upload raport
         uses: actions/upload-artifact@v3
         with:
           name: raport
-          path: "$HOME/${{ env.filename }}"
+          path: ${{ env.filename }}
 #      - name: List files
 #        run: ls -aR
       - name: Push raport
