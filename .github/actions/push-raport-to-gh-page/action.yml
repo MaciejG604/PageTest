@@ -41,3 +41,5 @@ runs:
           echo "The raport file is empty."
           exit 0
         fi
+    - name: Git Checkout
+      uses: actions/checkout@v3
