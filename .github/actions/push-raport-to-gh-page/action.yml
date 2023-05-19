@@ -26,7 +26,7 @@ runs:
         if [ -s ~/raport ]; then
           echo "The raport file is non-empty."
         
-          filename=$(./scripts/get_filename.sh)
+          filename="$(./scripts/get_filename.sh)"
           
           mkdir -p "./_posts"
           cat ~/raport > "./_posts/"$filename"
