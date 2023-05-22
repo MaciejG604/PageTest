@@ -20,12 +20,14 @@ jobs:
 
 #      - run: echo "filename=$HOME/$(./scripts/get_filename.sh)" >> "$GITHUB_ENV"
       - name: Generate raport
-        run: echo "GitHub Action on different" >> raport.md
+        run: |
+          echo "GitHub Action on different" >> raport.md
+          echo "NVM" >> raport_wrong.md
       - name: Upload raport
         uses: actions/upload-artifact@v3
         with:
           name: raport
-          path: raport.md
+          path: raport*.md
 #      - name: List files
 #        run: ls -aR
       - name: Push raport
