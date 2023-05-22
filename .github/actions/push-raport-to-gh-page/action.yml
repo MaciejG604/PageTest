@@ -58,7 +58,7 @@ runs:
           # Check if a file was found and replace it
           if [[ -n "$file_path" ]]; then
             cat ~/${{ inputs.file-to-pick }} > $file_path
-            if [[ "$file1" != "$file2" ]]; then
+            if [[ $file_path != ./_posts/"$filename" ]]; then
               mv $file_path ./_posts/"$filename"
             fi
           else
